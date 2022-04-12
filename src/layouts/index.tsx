@@ -12,7 +12,8 @@ type Props = {
 
 export default function Layout({ variant = 'dashboard', children }: Props) {
   if (variant === 'logoOnly') {
-    return <LogoOnlyLayout> {children} </LogoOnlyLayout>;
+    //<LogoOnlyLayout> bei fehler site
+    return <LogoOnlyLayout> LogoOnlyLayout {children} </LogoOnlyLayout>;
   }
 
   return <DashboardLayout> {children} </DashboardLayout>;

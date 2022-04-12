@@ -16,18 +16,19 @@ import shadows, { customShadows } from './shadows';
 type Props = {
   children: ReactNode;
 };
-
+// TODO change it when theme menu will be deleted
 export default function ThemeProvider({ children }: Props) {
   const { themeMode, themeDirection } = useSettings();
 
-  const isLight = themeMode === 'light';
+  const isLight = themeMode === 'dark';
 
   const themeOptions: ThemeOptions = useMemo(
     () => ({
       palette: isLight ? palette.light : palette.dark,
+      //palette: palette.dark,
       typography,
       breakpoints,
-      shape: { borderRadius: 8 },
+      shape: { borderRadius: 0 },
       direction: themeDirection,
       shadows: isLight ? shadows.light : shadows.dark,
       customShadows: isLight ? customShadows.light : customShadows.dark,

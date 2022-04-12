@@ -44,11 +44,11 @@ export const cookiesKey = {
 };
 
 export const defaultSettings: SettingsValueProps = {
-  themeMode: 'light',
+  themeMode: 'dark',
   themeDirection: 'ltr',
   themeContrast: 'default',
   themeLayout: 'horizontal',
-  themeColorPresets: 'blue',
+  themeColorPresets: 'orange',
   themeStretch: false,
 };
 

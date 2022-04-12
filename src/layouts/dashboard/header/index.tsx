@@ -13,19 +13,19 @@ import Logo from '../../../components/Logo';
 import Iconify from '../../../components/Iconify';
 import { IconButtonAnimate } from '../../../components/animate';
 //
-import Searchbar from './Searchbar';
-import AccountPopover from './AccountPopover';
-import LanguagePopover from './LanguagePopover';
-import ContactsPopover from './ContactsPopover';
-import NotificationsPopover from './NotificationsPopover';
+import Unternehmen from './Unternehmen';
+import Referenzen from './Referenzen';
+import Kontakt from './Kontakt';
+
+
 
 // ----------------------------------------------------------------------
-
 type RootStyleProps = {
   isCollapse: boolean;
   isOffset: boolean;
   verticalLayout: boolean;
 };
+
 
 const RootStyle = styled(AppBar, {
   shouldForwardProp: (prop) =>
@@ -61,41 +61,37 @@ type Props = {
   onOpenSidebar: VoidFunction;
   isCollapse?: boolean;
   verticalLayout?: boolean;
+
 };
 
 export default function DashboardHeader({
   onOpenSidebar,
   isCollapse = false,
   verticalLayout = false,
+
 }: Props) {
   const isOffset = useOffSetTop(HEADER.DASHBOARD_DESKTOP_HEIGHT) && !verticalLayout;
 
   const isDesktop = useResponsive('up', 'lg');
 
   return (
-    <RootStyle isCollapse={isCollapse} isOffset={isOffset} verticalLayout={verticalLayout}>
+    <RootStyle isCollapse={isCollapse} isOffset={isOffset} verticalLayout={true}>
       <Toolbar
+
         sx={{
           minHeight: '100% !important',
           px: { lg: 5 },
         }}
       >
-        {isDesktop && verticalLayout && <Logo sx={{ mr: 2.5 }} />}
-
-        {!isDesktop && (
+        {true && <Logo sx={{ mr: 2.5 }} />}
+        <Box sx={{ flexGrow: 1 }} />
+        <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
+          <Unternehmen />
+          <Referenzen />
+          <Kontakt />
           <IconButtonAnimate onClick={onOpenSidebar} sx={{ mr: 1, color: 'text.primary' }}>
             <Iconify icon="eva:menu-2-fill" />
           </IconButtonAnimate>
-        )}
-
-        <Searchbar />
-        <Box sx={{ flexGrow: 1 }} />
-
-        <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
-          <LanguagePopover />
-          <NotificationsPopover />
-          <ContactsPopover />
-          <AccountPopover />
         </Stack>
       </Toolbar>
     </RootStyle>

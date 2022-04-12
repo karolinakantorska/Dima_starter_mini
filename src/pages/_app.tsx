@@ -51,7 +51,7 @@ export default function MyApp(props: MyAppProps) {
         <SettingsProvider defaultSettings={settings}>
           <MotionLazyContainer>
             <ThemeProvider>
-              <ThemeSettings>
+              <ThemeSettings >
                 <ProgressBar />
                 {getLayout(<Component {...pageProps} />)}
               </ThemeSettings>
