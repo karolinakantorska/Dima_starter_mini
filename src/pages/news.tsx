@@ -1,21 +1,22 @@
 // layouts
-import Layout from '../layouts';
+import Layout from 'src/layouts';
 // components
 import Page from '../components/Page';
 import { RootStyle } from 'src/components/_Main/RootStyle';
-import { ContactCom } from 'src/components/_Company/ContactCom';
+
+import { NewsCom } from 'src/components/_Company/NewsCom';
 
 
-export default function Kontakt() {
-  //const { themeStretch } = useSettings();
-
+export default function News() {
   return (
     <Layout>
       <Page title="Dima & Partner | Glarus Zurich Arosa">
         <RootStyle>
-          <ContactCom />
+          <NewsCom />
         </RootStyle>
       </Page>
     </Layout>
+
   );
 }
+

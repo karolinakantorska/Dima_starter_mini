@@ -111,6 +111,7 @@ function NavListSub({ list }: NavListSubProps) {
         />
 
         <PaperStyle
+        
           open={open}
           anchorEl={menuRef.current}
           anchorOrigin={{ vertical: 'top', horizontal: 'right' }}

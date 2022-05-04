@@ -1,20 +1,21 @@
 import { ReactNode } from 'react';
+// guards
+//import AuthGuard from '../guards/AuthGuard';
 // components
-import DashboardLayout from './dashboard';
-import LogoOnlyLayout from './LogoOnlyLayout';
+import MainLayout from './main';
 
 // ----------------------------------------------------------------------
 
 type Props = {
   children: ReactNode;
-  variant?: 'main' | 'dashboard' | 'logoOnly';
+  variant?: 'main' | 'dashboard';
 };
-
 export default function Layout({ variant = 'dashboard', children }: Props) {
-  if (variant === 'logoOnly') {
-    //<LogoOnlyLayout> bei fehler site
-    return <LogoOnlyLayout> LogoOnlyLayout {children} </LogoOnlyLayout>;
-  }
 
-  return <DashboardLayout> {children} </DashboardLayout>;
+  return <MainLayout> {children} </MainLayout>;
 }
+/*
+<AuthGuard>
+      <DashboardLayout> {children} </DashboardLayout>
+    </AuthGuard>
+    */

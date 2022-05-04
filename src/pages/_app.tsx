@@ -20,11 +20,11 @@ import { CollapseDrawerProvider } from '../contexts/CollapseDrawerContext';
 // theme
 import ThemeProvider from '../theme';
 // components
-import ThemeSettings from '../components/settings';
 import { SettingsValueProps } from '../components/settings/type';
 import ProgressBar from '../components/ProgressBar';
 import MotionLazyContainer from '../components/animate/MotionLazyContainer';
-
+import { AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/router';
 // ----------------------------------------------------------------------
 
 type NextPageWithLayout = NextPage & {
@@ -38,8 +38,8 @@ interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, pageProps, settings } = props;
+  const router = useRouter();
 
-  const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
     <>
@@ -51,10 +51,13 @@ export default function MyApp(props: MyAppProps) {
         <SettingsProvider defaultSettings={settings}>
           <MotionLazyContainer>
             <ThemeProvider>
-              <ThemeSettings >
-                <ProgressBar />
-                {getLayout(<Component {...pageProps} />)}
-              </ThemeSettings>
+              <ProgressBar />
+              <AnimatePresence
+                exitBeforeEnter
+              //onExitComplete={handleExitComplete}
+              >
+                <Component {...pageProps} key={router.route} />
+              </AnimatePresence>
             </ThemeProvider>
           </MotionLazyContainer>
         </SettingsProvider>

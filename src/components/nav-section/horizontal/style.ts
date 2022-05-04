@@ -74,6 +74,7 @@ export const ListItemStyle = styled(Button, {
 // ----------------------------------------------------------------------
 
 export const PaperStyle = styled(Popover)(({ theme }) => ({
+ 
   pointerEvents: 'none',
   '& .MuiPopover-paper': {
     width: 160,
