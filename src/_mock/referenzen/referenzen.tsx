@@ -413,30 +413,4 @@ export const _mockProjekts: ProjectsListType = [
     location: 'Glarus',
   },
 ];
-/*
-const Beispiel: ProjectType = {
-  photo: {
-    url: `/cover_8.jpg`,
-    title: `Beispiel Projekt`,
-    alt: `Beispiel Projekt`,
-    author: '',
-  },
-  photos: [],
-  id: '8',
-  title: 'Beispiel Projekt',
-  description: description[2], // Längerer Text
-  year: 2012,
-  objektAlter: 'Sanierung', //  eine von: "Newbau" | "Sanierung" | "Wettbewerb"
-  objektType: ['MFH'], // mehrere von: 'MFH','Gewerbe','Büro','EFH','Gesundheits','Sport','Multifunktional',
-  services: ['Architektur', 'Bauleitung'], // mehrere von:  'TU','Bauleitung','Architektur','GP','Wettbewerb','Käuferbetreuung','Ausführungsplanung','Studien','Mangelmenagement','Kostenmenagement','Submision',
-  timeStamp: 1,
-  region: 'Glarus', //  eine von:  "Zürich" | "Glarus" | "Arosa" | "Andere Regionen"
-  phase: ['Realisierung'], // mehrere von: 'Entwicklung', 'Plannung', 'Realisierung'
-  client: 'gemeinde glarus', // text
-  size: 9999,
-  architect: '', // text
-  cooperation: { service: 'Bauleitung', company: 'rhyner baumanagement' },
-  location: 'Glarus', // text
-};
-console.log(Beispiel);
-*/
+
