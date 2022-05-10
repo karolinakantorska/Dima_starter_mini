@@ -52,7 +52,7 @@ export function useOnePhotoUpload(folderName: string) {
       .then((metadata) => {
         if (metadata.customMetadata) {
           setImages([]);
-          const newImage: ImageType = { url: url, title: inputs.title, alt: inputs.alt, author: '' }
+          const newImage: ImageType = { url: url, title: inputs.title, alt: inputs.alt, }
           setImages((image) => [...image, newImage]);
           setLoading(false);
         }
