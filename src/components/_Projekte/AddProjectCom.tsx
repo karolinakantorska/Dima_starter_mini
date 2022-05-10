@@ -233,7 +233,7 @@ export default function AddProjectCom() {
         <Grid item>
           <Grid container direction="row" spacing={2}>
             {images && images.map((image: ImageType, index: number) => (
-              <Grid item>
+              <Grid item key={image.url}>
                 <ImagesInputCom
                   image={image}
                   index={index}
