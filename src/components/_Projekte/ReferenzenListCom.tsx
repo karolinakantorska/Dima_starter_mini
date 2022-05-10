@@ -77,7 +77,7 @@ export function ReferenzenListCom(
         {...variantUp}
         sx={{ backgroundColor: 'dima', position: 'absolute', zIndex: 1200 }}>
       </Box>
-      <NextLink href={PATH_REFERENZEN.addProject} passHref>
+      <NextLink href={PATH_REFERENZEN.addProject} >
         <Box sx={{
           position: 'sticky', zIndex: 1200, top: 88, width: '100%', display: 'flex',
           alignItems: 'end',

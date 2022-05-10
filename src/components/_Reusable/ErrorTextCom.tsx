@@ -25,7 +25,7 @@ export default function ErrorTextCom({ text }: { text: string | boolean }) {
             <Typography variant="body2" component="span" >
                 Fehler: {`"${text}"`}
             </Typography>
-            {link && <a href={link} target="_blank">
+            {link && <a href={link} target="_blank" rel="noreferrer">
                 <Typography variant="body2" component="span" >
                     {` - mehr Informationen finden sie am: `}
                 </Typography>
