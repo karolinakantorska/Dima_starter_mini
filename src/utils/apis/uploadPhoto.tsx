@@ -30,7 +30,7 @@ export function useOnePhotoUpload(folderName: string) {
       async () => {
         await getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setImages([]);
-          const newImage: ImageType = { url: downloadURL, title: title, alt: title, author: '' }
+          const newImage: ImageType = { url: downloadURL, title: title, alt: title, }
           setImages((image) => [...image, newImage]);
           setLoading(false);
         });
