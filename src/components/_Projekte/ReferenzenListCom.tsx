@@ -78,16 +78,15 @@ export function ReferenzenListCom(
         {...variantUp}
         sx={{ backgroundColor: 'dima', position: 'absolute', zIndex: 1200 }}>
       </Box>
-
-
+      <Box sx={{ position: 'absolute' }} className='tu jestem'>
+        <NextLink href={PATH_REFERENZEN.addProject} passHref>
+          <Button variant="contained" startIcon={<Iconify icon={'eva:plus-fill'} />}>
+            Neues Projekt
+          </Button>
+        </NextLink>
+      </Box>
       <Container disableGutters={true}>
-        <Box sx={{ position: 'absolute' }}>
-          <NextLink href={PATH_REFERENZEN.addProject} passHref>
-            <Button variant="contained" startIcon={<Iconify icon={'eva:plus-fill'} />}>
-              Neues Projekt
-            </Button>
-          </NextLink>
-        </Box>
+
         <Grid container direction="column" justifyContent="center" spacing={2} sx={{
           mt: 0
         }}>
