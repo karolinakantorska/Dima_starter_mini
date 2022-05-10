@@ -1,7 +1,9 @@
 import { useState, ReactNode, useEffect } from 'react';
 import { m, } from 'framer-motion';
+// next
+import NextLink from 'next/link';
 // @mui
-import { Box, Container, Grid, } from '@mui/material';
+import { Box, Container, Grid, Button } from '@mui/material';
 
 // hooks
 import useResponsive from '../../hooks/useResponsive';
@@ -16,6 +18,8 @@ import { useForm } from 'src/utils/myUtils/useForm';
 import { filter } from 'src/utils/myUtils/filterFunction';
 import { FilterReferenzenCom } from './FilterReferenzenCom';
 import { ProjectsListType, User } from '../../utils/TS/interface';
+import Iconify from '../Iconify';
+import { PATH_REFERENZEN } from 'src/routes/paths';
 
 // TODO use location instead use route
 export function ReferenzenListCom(
@@ -49,6 +53,7 @@ export function ReferenzenListCom(
     setXPosition(position())
     setYPosition(728 - ((1700 - window.innerWidth) * 0.37))
   })
+
   useEffect(() => {
     if (inputs.param !== initialInputs.param) {
       setSorted(true);
@@ -65,6 +70,7 @@ export function ReferenzenListCom(
     transition: { duration: 1 },
 
   };
+
   return (
     <>
       <Box
@@ -72,6 +78,11 @@ export function ReferenzenListCom(
         {...variantUp}
         sx={{ backgroundColor: 'dima', position: 'absolute', zIndex: 1200 }}>
       </Box>
+      <NextLink href={PATH_REFERENZEN.addProject} passHref>
+        <Button variant="contained" startIcon={<Iconify icon={'eva:plus-fill'} />}>
+          Neues Projekt
+        </Button>
+      </NextLink>
       <Container disableGutters={true}>
         <Grid container direction="column" justifyContent="center" spacing={2} sx={{
           mt: 0

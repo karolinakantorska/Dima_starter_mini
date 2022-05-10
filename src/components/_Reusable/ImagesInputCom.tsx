@@ -2,7 +2,7 @@ import React, { SyntheticEvent, useState, ChangeEvent, ChangeEventHandler, useEf
 import Image from "next/image";
 import { Box } from "@mui/system";
 import Grid from "@mui/material/Grid";
-import { ImageType } from '../../src/utils/TS/interface';
+import { ImageType } from 'src/utils/TS/interface';
 import ImageMetadataInputCom from "./ImageMetadataImputCom";
 import LoadingLinealWithNumberCom from "./LoadingLinealWithNumberCom";
 import ErrorTextCom from "./ErrorTextCom";
