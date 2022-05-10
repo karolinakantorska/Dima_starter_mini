@@ -1,4 +1,4 @@
-import { ProjectsListType, ProjectType, FilterParams, Phase, Regionen } from "../TS/interface"
+import { ProjectsListType, ProjectType, FilterParams, Phase, Regionen } from "./TS/interface"
 
 export function filter(allProjects: ProjectsListType, { param }: { param: Phase | Regionen }) {
     if (param !== 'Alle') {
