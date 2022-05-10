@@ -19,6 +19,10 @@ export const PATH_AUTH = {
   resetPassword: path(ROOTS_AUTH, '/reset-password'),
   newPassword: path(ROOTS_AUTH, '/new-password'),
 };
+export const PATH_LOGIN = {
+  login: '/anmelden',
+  resetPass: '/reset_password',
+};
 export const PATH_UNTERNEHMEN = {
   ueber_uns: '/unternehmen/ueber_uns',
   leistungen: '/unternehmen/leistungen',

@@ -15,9 +15,9 @@ import { PATH_LOGIN } from 'src/routes/paths';
 import useAuth from 'src/utils/firebaseAuth/useAuth';
 import useIsMountedRef from 'src/hooks/useIsMountedRef';
 // components
-import Iconify from 'src/components/Iconify';
 import { FormProvider, RHFTextField, RHFCheckbox } from 'src/components/hook-form';
 import { styled } from '@mui/material/styles';
+import ResetPass from '../../pages/reset_password';
 
 
 // ----------------------------------------------------------------------
@@ -37,23 +37,17 @@ export const GridStyle = styled(Grid)(({ theme }) => ({
   },
 }));
 
-export default function LoginForm() {
-  const { login } = useAuth();
+export default function PassResetFormCom() {
+  const { resetPassword } = useAuth();
   const router = useRouter();
-
   const isMountedRef = useIsMountedRef();
-
-  const [showPassword, setShowPassword] = useState(false);
-
+  const [success, setSuccess] = useState<false | string>(false)
   const LoginSchema = Yup.object().shape({
     email: Yup.string().email('Email must be a valid email address').required('Email is required'),
-    password: Yup.string().required('Password is required'),
   });
 
   const defaultValues = {
     email: 'karolina@gmail.com',
-    password: '',
-    remember: true,
   };
 
   const methods = useForm<FormValuesProps>({
@@ -68,25 +62,16 @@ export default function LoginForm() {
     formState: { errors, isSubmitting },
   } = methods;
 
-
-  function errorMessage(text: string) {
-    if (text.includes('auth/wrong-password') || text.includes('auth/user-not-found')) {
-      return 'wrong user or password';
-    } else {
-      return text;
-    }
-  }
   const onSubmit = async (data: FormValuesProps) => {
     try {
-      await login(data.email, data.password);
-      router.push('/');
+      await resetPassword(data.email);
+      setSuccess('Email has been send')
     } catch (error) {
       console.error(error);
-      const message = errorMessage(error.message);
-      setError('email', { ...error, message: message });
+      setError('email', { ...error, message: error.message });
       reset();
       if (isMountedRef.current) {
-        setError('afterSubmit', { ...error, message: message });
+        setError('afterSubmit', { ...error, message: error.message });
       }
     }
   }
@@ -94,39 +79,24 @@ export default function LoginForm() {
     <Grid container justifyContent="center">
       <GridStyle item >
         <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-          <Stack spacing={3}>
+          <Stack spacing={4}>
             {!!errors.afterSubmit && <Alert severity="error">{errors.afterSubmit.message}</Alert>}
+            {success && <Alert severity="success">{success}</Alert>}
             <RHFTextField name="email" label="E-mail adresse" />
-            <RHFTextField
-              name="password"
-              label="Password"
-              type={showPassword ? 'text' : 'password'}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                      <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Stack>
-          <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
-            <RHFCheckbox name="remember" label="Remember me" />
-            <NextLink href={PATH_LOGIN.resetPass} passHref>
-              <Link variant="subtitle2">Password vergessen?</Link>
+            <LoadingButton
+              fullWidth
+              size="large"
+              type="submit"
+              variant="contained"
+              loading={isSubmitting}
+            >
+              Send Reset Email
+            </LoadingButton>
+            <NextLink href={PATH_LOGIN.login} passHref>
+              <Link variant="subtitle2">Erneut anmelden</Link>
             </NextLink>
           </Stack>
-          <LoadingButton
-            fullWidth
-            size="large"
-            type="submit"
-            variant="contained"
-            loading={isSubmitting}
-          >
-            Login
-          </LoadingButton>
+
         </FormProvider>
       </GridStyle>
     </Grid >

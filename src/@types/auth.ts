@@ -39,6 +39,7 @@ export type FirebaseContextType = {
   login: (email: string, password: string) => Promise<UserCredential>;
   register: (email: string, password: string, firstName: string, lastName: string) => Promise<void>;
   logout: () => Promise<void>;
+  resetPassword:(email: string) => Promise<void>;
 };
 
 export type AWSCognitoContextType = {

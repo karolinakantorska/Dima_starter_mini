@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail
 } from 'firebase/auth';
 import { getFirestore, collection, doc, getDoc, setDoc, DocumentData } from 'firebase/firestore';
 // @types
@@ -21,6 +22,7 @@ const ADMIN_EMAILS = ['demo@minimals.cc'];
 export const firebaseApp = initializeApp(firebaseConfig);
 
 export const AUTH = getAuth(firebaseApp);
+
 
 export const DB = getFirestore(firebaseApp);
 /*
@@ -80,6 +82,7 @@ function AuthProvider({ children }: AuthProviderProps) {
       onAuthStateChanged(AUTH, async (user) => {
         console.log('AUTH', AUTH)
         console.log('AUTH.currentUser', AUTH.currentUser)
+        AUTH.languageCode = 'de';
         if (user) {
           console.log('user', user)
           const userRef = doc(DB, 'users', user.uid);
@@ -107,10 +110,12 @@ function AuthProvider({ children }: AuthProviderProps) {
   const login = (email: string, password: string) =>
     signInWithEmailAndPassword(AUTH, email, password);
 
+  const resetPassword = (email: string) => sendPasswordResetEmail(AUTH, email)
+
   const register = (email: string, password: string, firstName: string, lastName: string) =>
+
     createUserWithEmailAndPassword(AUTH, email, password).then(async (res) => {
       const userRef = doc(collection(DB, 'users'), res.user?.uid);
-
       await setDoc(userRef, {
         uid: res.user?.uid,
         email,
@@ -143,6 +148,7 @@ function AuthProvider({ children }: AuthProviderProps) {
         login,
         register,
         logout,
+        resetPassword
       }}
     >
       {children}
