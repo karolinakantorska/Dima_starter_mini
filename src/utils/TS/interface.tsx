@@ -34,7 +34,7 @@ export interface ImageType {
   url: string;
   title: string;
   alt: string;
-  author: string;
+  author?: string;
 }
 export type ImagesType = ImageType[];
 

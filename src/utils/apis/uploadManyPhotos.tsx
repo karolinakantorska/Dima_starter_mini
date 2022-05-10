@@ -35,7 +35,7 @@ export function useManyPhotosUpload(folderName: string,) {
         },
         async () => {
           await getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            setImages((image) => [...image, { url: downloadURL, title: title, alt: title, author: '' }]);
+            setImages((image) => [...image, { url: downloadURL, title: title, alt: title }]);
           });
         }
       )
@@ -72,7 +72,7 @@ export function useManyPhotosUpload(folderName: string,) {
       },
       async () => {
         await getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          imagesArray.splice(positionInArray, 1, { url: downloadURL, title: title, alt: title });
+          imagesArray.splice(positionInArray, 1, { url: downloadURL, title: title, alt: title, });
           setImages(imagesArray);
           setLoading(false)
         });
