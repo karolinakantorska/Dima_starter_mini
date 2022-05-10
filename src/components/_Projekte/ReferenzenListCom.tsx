@@ -68,7 +68,6 @@ export function ReferenzenListCom(
       : { y: yPosition, x: -xPosition, transition: { duration: .1 } },
     exit: isAnimated && { width: ['0.1vw', '101.5vw', '101.5vw'], scaleY: [1, 1, 400] },
     transition: { duration: 1 },
-
   };
 
   return (
@@ -78,7 +77,7 @@ export function ReferenzenListCom(
         {...variantUp}
         sx={{ backgroundColor: 'dima', position: 'absolute', zIndex: 1200 }}>
       </Box>
-      <Box sx={{ position: 'absolute' }} className='tu jestem'>
+      <Box sx={{ position: 'fixed' }} className='tu jestem'>
         <NextLink href={PATH_REFERENZEN.addProject} passHref>
           <Button variant="contained" startIcon={<Iconify icon={'eva:plus-fill'} />}>
             Neues Projekt
