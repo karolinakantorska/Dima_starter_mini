@@ -78,7 +78,7 @@ export function ReferenzenListCom(
         sx={{ backgroundColor: 'dima', position: 'absolute', zIndex: 1200 }}>
       </Box>
       <NextLink href={PATH_REFERENZEN.addProject} passHref>
-        <Box sx={{ position: 'sticky', zIndex: 1200, }} className='tu jestem'>
+        <Box sx={{ position: 'sticky', zIndex: 1200, top: 88, width: '100%' }} >
           <Button variant="contained" startIcon={<Iconify icon={'eva:plus-fill'} />}>
             Neues Projekt
           </Button>
