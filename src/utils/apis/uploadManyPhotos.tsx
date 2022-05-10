@@ -35,7 +35,7 @@ export function useManyPhotosUpload(folderName: string,) {
         },
         async () => {
           await getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            setImages((image) => [...image, { url: downloadURL, title: title, alt: title }]);
+            setImages((image) => [...image, { url: downloadURL, title: title, alt: title, author: '' }]);
           });
         }
       )
