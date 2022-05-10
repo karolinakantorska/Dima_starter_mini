@@ -28,7 +28,8 @@ export default function Card(theme: Theme) {
     MuiCardContent: {
       styleOverrides: {
         root: {
-          padding: theme.spacing(3),
+          padding:0
+          //padding: theme.spacing(3),
         },
       },
     },

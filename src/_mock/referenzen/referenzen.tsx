@@ -9,6 +9,7 @@ import {
 } from '../../utils/TS/interface';
 
 import { description } from './description';
+import { useOnePhotoUpload } from '../../utils/apis/uploadPhoto';
 
 export const _mockProjekts: ProjectsListType = [
   //
@@ -19,7 +20,6 @@ export const _mockProjekts: ProjectsListType = [
       url: `/cover_1.jpg`,
       title: `4 mehrfamilienhäuser ettersbüe`,
       alt: `4 mehrfamilienhäuser ettersbüe`,
-      author: '',
     },
     photos: [],
     id: '1',
@@ -45,7 +45,7 @@ export const _mockProjekts: ProjectsListType = [
       url: `/cover_2.jpg`,
       title: `neubau mehrfamilienhaus mettelacher`,
       alt: `neubau mehrfamilienhaus mettelacher`,
-      author: '',
+
     },
     photos: [],
     id: '2',
@@ -71,7 +71,7 @@ export const _mockProjekts: ProjectsListType = [
       url: `/cover_3.jpg`,
       title: `neubau 2 einfamilienhäuser`,
       alt: `neubau 2 einfamilienhäuser`,
-      author: '',
+
     },
     photos: [],
     id: '3',
@@ -97,7 +97,7 @@ export const _mockProjekts: ProjectsListType = [
       url: `/cover_4.jpg`,
       title: `wohnüberbauung oberer gubel`,
       alt: `wohnüberbauung oberer gubel`,
-      author: '',
+
     },
     photos: [],
     id: '4',
@@ -123,7 +123,7 @@ export const _mockProjekts: ProjectsListType = [
       url: `/cover_5.jpg`,
       title: `wohnüberbauung schachenmatt 2`,
       alt: `wohnüberbauung schachenmatt 2`,
-      author: '',
+
     },
     photos: [],
     id: '5',
@@ -149,7 +149,7 @@ export const _mockProjekts: ProjectsListType = [
       url: `/cover_6.jpg`,
       title: `neubau 4 mfh leisibüelpark`,
       alt: `neubau 4 mfh leisibüelpark`,
-      author: '',
+
     },
     photos: [],
     id: '6',
@@ -176,7 +176,7 @@ export const _mockProjekts: ProjectsListType = [
       url: `/cover_7.jpg`,
       title: `neubau mehrfamilienhaus obere wallisellerstrasse`,
       alt: `neubau mehrfamilienhaus obere wallisellerstrasse`,
-      author: '',
+
     },
     photos: [],
     id: '7',
@@ -202,7 +202,7 @@ export const _mockProjekts: ProjectsListType = [
       url: `/cover_8.jpg`,
       title: `sanierung schwimmbad gründli`,
       alt: `sanierung schwimmbad gründli`,
-      author: '',
+
     },
     photos: [],
     id: '8',
@@ -228,7 +228,7 @@ export const _mockProjekts: ProjectsListType = [
       url: `/cover_9.jpg`,
       title: `neubau Kongress- & Kulturzentrum  samsung hall`,
       alt: `neubau Kongress- & Kulturzentrum  samsung hall`,
-      author: '',
+
     },
     photos: [],
     id: '9',
@@ -254,9 +254,9 @@ export const _mockProjekts: ProjectsListType = [
       url: `/cover_10.jpg`,
       title: `neubau hauptsitz namics ag`,
       alt: `neubau hauptsitz namics ag`,
-      author: 'Roger Frei, Zürich',
     },
     photos: [],
+    photoAuthor: 'Roger Frei, Zürich',
     id: '10',
     title: 'neubau hauptsitz namics ag',
     description: description[4],
@@ -280,7 +280,7 @@ export const _mockProjekts: ProjectsListType = [
       url: `/cover_11.jpg`,
       title: `überbauung feldbreite`,
       alt: `überbauung feldbreite`,
-      author: '',
+
     },
     photos: [],
     id: '11',
@@ -307,9 +307,10 @@ export const _mockProjekts: ProjectsListType = [
       url: `/cover_12.jpg`,
       title: `neubau zugschleife, Feldpark `,
       alt: `neubau zugschleife, Feldpark `,
-      author: 'Miguel Verme, Chur',
     },
+
     photos: [],
+    photoAuthor: 'Miguel Verme, Chur',
     id: '12',
     title: 'neubau zugschleife, Feldpark ',
     description: description[1],
@@ -334,7 +335,7 @@ export const _mockProjekts: ProjectsListType = [
       url: `/cover_13.jpg`,
       title: `neubau 25 refh, wohnüberbauung pelicano, `,
       alt: `neubau 25 refh, wohnüberbauung pelicano, `,
-      author: '',
+
     },
     photos: [],
     id: '13',
@@ -364,7 +365,7 @@ export const _mockProjekts: ProjectsListType = [
       url: `/cover_14.jpg`,
       title: `sanierung & erweiterung multifunktionale sport-und kongressanlage, `,
       alt: `sanierung & erweiterung multifunktionale sport-und kongressanlage, `,
-      author: '',
+
     },
     photos: [],
     id: '14',
@@ -394,7 +395,7 @@ export const _mockProjekts: ProjectsListType = [
       url: `/cover_15.jpg`,
       title: `umbau credit suisse ag, geschäftstelle und 3 stadtwohnungen`,
       alt: `umbau credit suisse ag, geschäftstelle und 3 stadtwohnungen`,
-      author: '',
+
     },
     photos: [],
     id: '15',

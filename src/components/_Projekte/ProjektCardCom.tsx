@@ -13,6 +13,8 @@ import Link from 'next/link';
 import { ProjectType } from 'src/utils/TS/interface';
 import { TextCardCom } from './textCardCom';
 
+
+
 export function ProjektCardCom({
   project,
   gridRow,
@@ -24,7 +26,9 @@ export function ProjektCardCom({
   big: boolean;
   rewerseBig: boolean;
 }) {
-  const { id, photo } = project;
+  console.log('project', project)
+  const { id, photo, photoAuthor } = project;
+  //console.log('photoAuthor', photoAuthor)
   const isDesktop = useResponsive('up', 'lm');
   const isSmall = useResponsive('down', 'sm');
   const gridAutoRows = isSmall ? '' : '1fr';
@@ -69,7 +73,7 @@ export function ProjektCardCom({
         >
           <Image src={photo.url} alt={photo.alt} ratio="16/9" />
         </Card>
-        <TextCardCom project={project} big={big} rewerseBig={rewerseBig} />
+        <TextCardCom project={project} big={big} rewerseBig={rewerseBig} authorPhoto={photoAuthor ? photoAuthor : ''} />
       </Box>
     </Link>
     )
@@ -94,7 +98,7 @@ export function ProjektCardCom({
             >
               <Image src={photo.url} alt={photo.alt} ratio="16/9" />
             </Card>
-            <TextCardCom project={project} big={big} rewerseBig={rewerseBig} />
+            <TextCardCom project={project} big={big} rewerseBig={rewerseBig} authorPhoto={photoAuthor ? photoAuthor : ''} />
           </Box>
         </Link>
       </>

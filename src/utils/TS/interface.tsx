@@ -3,6 +3,7 @@ export const dima = `DIMA Partner | Architektur & Totalunternehmung`;
 export interface ProjectType {
   photo: ImageType;
   photos: ImageType[];
+  photoAuthor?: string;
   id: string;
   title: string;
   description: string;
@@ -34,7 +35,6 @@ export interface ImageType {
   url: string;
   title: string;
   alt: string;
-  author?: string;
 }
 export type ImagesType = ImageType[];
 

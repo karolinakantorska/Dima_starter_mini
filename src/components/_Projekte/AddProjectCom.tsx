@@ -44,10 +44,13 @@ export default function AddProjectCom() {
   const { deleteImage, loading: loadingDelete, error: errorDelete } = useDeleteImage();
   const { inputs, handleInputChange, resetInputs, handleArray, handleDate, errorForm, veryfyInput } = useForm({});
   const { addProject, edit, loading: loadingAddProject, error: ErrorAddProject, savedProjectId } = useAddProjestToFirestore();
-  // Addind Project from mock
+  // ADDING PROJECTS FROM MOCKS
   /*
   const addMockstoDB = () => {
-    _mockProjekts.map((project, i) => addProject("projects", project))
+    _mockProjekts.map((project) => {
+      const newProject = (project:any)=> delete project.id;
+      return addProject("projects", newProject)
+    })
   }
 */
   useEffect(() => {
@@ -75,24 +78,24 @@ export default function AddProjectCom() {
   //TODO disable by loading
   //TODO project title required
 
-
-
-
   async function addOrEdit(project: ProjectType) {
     if (savedProject) {
-      edit("projects", savedProjectId, project)
+      try { edit("projects", savedProjectId, project) }
+      catch (error) { console.log('error', error) }
     } else {
-      addProject("projects", project)
+      try { addProject("projects", project) }
+      catch (error) { console.log('error', error) }
     }
   }
   async function add(project: ProjectType) {
-    try { addProject("projects", project) }
-    finally {
+    try {
+      addProject("projects", project)
       resetInputs();
       resetImage();
       resetImages();
       setSavedProject(false);
     }
+    catch (error) { console.log('error', error) }
   }
   function handleSubmit(e: ChangeEvent<HTMLFormElement>) {
     //console.log(e)
@@ -266,7 +269,7 @@ export default function AddProjectCom() {
               variant="contained"
               onClick={() => setReset(true)}
             >
-              speichern und neue anfangen
+              speichern und neue project anfangen
             </LoadingButton>
             <Button
               variant="text"

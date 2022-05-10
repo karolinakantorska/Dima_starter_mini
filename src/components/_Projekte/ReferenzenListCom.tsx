@@ -4,7 +4,7 @@ import { m, } from 'framer-motion';
 import NextLink from 'next/link';
 // @mui
 import { Box, Container, Grid, Button } from '@mui/material';
-
+import { styled } from '@mui/material/styles';
 // hooks
 import useResponsive from '../../hooks/useResponsive';
 import { useRouter } from 'next/router';
@@ -59,6 +59,13 @@ export function ReferenzenListCom(
       setSorted(true);
     }
   }, [inputs])
+
+  const StickyBox = styled(Box)(({ theme }) => ({
+    position: 'sticky', zIndex: 1200, top: 88, width: '100%', display: 'flex',
+    alignItems: 'end',
+    justifyContent: 'end'
+  }));
+
   const variantUp = {
     initial: isSmallDesktop
       ? { height: '4px', width: 0, y: 728, x: 0 }
@@ -69,7 +76,6 @@ export function ReferenzenListCom(
     exit: isAnimated && { width: ['0.1vw', '101.5vw', '101.5vw'], scaleY: [1, 1, 400] },
     transition: { duration: 1 },
   };
-
   return (
     <>
       <Box
@@ -77,20 +83,16 @@ export function ReferenzenListCom(
         {...variantUp}
         sx={{ backgroundColor: 'dima', position: 'absolute', zIndex: 1200 }}>
       </Box>
-      <NextLink href={PATH_REFERENZEN.addProject} >
-        <Box sx={{
-          position: 'sticky', zIndex: 1200, top: 88, width: '100%', display: 'flex',
-          alignItems: 'end',
-          justifyContent: 'end'
-        }} >
-          <Button variant="contained" startIcon={<Iconify icon={'eva:plus-fill'} sx={{ alignItems: 'center' }} />}>
+
+      <StickyBox >
+        <NextLink href={PATH_REFERENZEN.addProject} >
+          <Button variant="contained" startIcon={<Iconify icon={'eva:plus-fill'} />}>
             Neues Projekt
           </Button>
-        </Box>
-      </NextLink>
+        </NextLink>
+      </StickyBox>
 
       <Container disableGutters={true}>
-
         <Grid container direction="column" justifyContent="center" spacing={2} sx={{
           mt: 0
         }}>
