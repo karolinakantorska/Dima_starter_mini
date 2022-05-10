@@ -15,9 +15,15 @@ import { _mockProjekts } from '../../_mock/referenzen/referenzen';
 import { useForm } from 'src/utils/myUtils/useForm';
 import { filter } from 'src/utils/myUtils/filterFunction';
 import { FilterReferenzenCom } from './FilterReferenzenCom';
+import { ProjectsListType, User } from '../../utils/TS/interface';
 
 // TODO use location instead use route
-export function ReferenzenListCom() {
+export function ReferenzenListCom(
+  { projectsList, user }: {
+    projectsList: ProjectsListType,
+    user: User
+  }) {
+
   const initialInputs = { param: "Alle" }
   const [sorted, setSorted] = useState(false);
   const [xPosition, setXPosition] = useState(200);
@@ -28,10 +34,10 @@ export function ReferenzenListCom() {
   const gtc = isDesktop ? 'repeat(3, 1fr)' : isSmall ? '1fr' : 'repeat(2, 1fr)';
   const { query } = useRouter();
   const { inputs, handleInputChange, } = useForm({ param: "Alle" });
-  const filteredProjects = filter(_mockProjekts, inputs);
-  const animatedPaths = () => filteredProjects.slice(0, 4).map((entry) => `/referenz/${entry.id}`)
+  const filteredProjects = filter(projectsList, inputs);
+  const animatedPaths = () => projectsList.slice(0, 4).map((entry) => `/referenz/${entry.id}`)
   const isAnimated = animatedPaths().includes(`/referenz/${query.id}`);
-  //const filteredProjects = _mockProjekts;
+  //const filteredProjects = projectsList;
   // console.log('inputs', inputs)
   useEffect(() => {
     const position = () => {
@@ -49,7 +55,6 @@ export function ReferenzenListCom() {
     }
   }, [inputs])
   const variantUp = {
-
     initial: isSmallDesktop
       ? { height: '4px', width: 0, y: 728, x: 0 }
       : { height: '4px', width: 0, yPosition, x: 0 },
@@ -71,8 +76,6 @@ export function ReferenzenListCom() {
         <Grid container direction="column" justifyContent="center" spacing={2} sx={{
           mt: 0
         }}>
-
-
           <Grid item>
             <FilterReferenzenCom
               sorted={sorted}

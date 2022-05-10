@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { collection, getDocs, doc, getDoc, query, orderBy } from "firebase/firestore";
-import { db } from '../../../firebase';
+import { DB } from "src/contexts/FirebaseContext";
 
 export async function getOrderedCollection(collectionName: string, sortBy: string) {
-  const q = query(collection(db, collectionName), orderBy(sortBy, "desc"));
+  const q = query(collection(DB, collectionName), orderBy(sortBy, "desc"));
 
   const querySnapshot = await getDocs(q);
 
@@ -15,7 +15,7 @@ export async function getOrderedCollection(collectionName: string, sortBy: strin
   return res;
 }
 export async function getCollectionId(collectionName: string) {
-  const projectsCol = collection(db, collectionName);
+  const projectsCol = collection(DB, collectionName);
   const projectSnapshot = await getDocs(projectsCol);
   const res = projectSnapshot.docs.map((entry) => ({
     id: entry.id,
@@ -27,7 +27,7 @@ export async function getCollectionDocument(
   collectionName: string,
   docId: string
 ) {
-  const ref = doc(db, collectionName, docId);
+  const ref = doc(DB, collectionName, docId);
   const docSnap = await getDoc(ref);
   if (docSnap.exists()) {
     const project = docSnap.data();
@@ -41,7 +41,7 @@ export async function getCollectionDocument(
 }
 
 export async function getCollection(collectionName: string) {
-  const projectsCol = collection(db, collectionName);
+  const projectsCol = collection(DB, collectionName);
   const projectSnapshot = await getDocs(projectsCol);
   const res = projectSnapshot.docs.map((entry) => ({
     id: entry.id,

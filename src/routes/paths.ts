@@ -40,7 +40,7 @@ export const PATH_NEWS = {
 export const PATH_LINKS = {
   links: '/links',
 };
-
+/*
 export const PATH_PAGE = {
   comingSoon: '/coming-soon',
   maintenance: '/maintenance',
@@ -114,5 +114,6 @@ export const PATH_DASHBOARD = {
     demoView: path(ROOTS_DASHBOARD, '/blog/post/apply-these-7-secret-techniques-to-improve-event'),
   },
 };
+*/
 
-export const PATH_DOCS = 'https://docs-minimals.vercel.app/introduction';
+//export const PATH_DOCS = 'https://docs-minimals.vercel.app/introduction';

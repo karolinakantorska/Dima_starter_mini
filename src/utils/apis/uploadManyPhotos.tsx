@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { getStorage, ref, getDownloadURL, uploadBytesResumable, updateMetadata, StorageError, deleteObject, UploadTask } from "firebase/storage";
-import { createMetadata, fileNameWithoutFileExtension } from '../utils';
+//port { createMetadata, fileNameWithoutFileExtension } from './utils';
 import { ImagesType } from '../TS/interface';
 
 //TODO repair this
 import { deleteImage } from './deletePhotoFromStorage';
+import { createMetadata, fileNameWithoutFileExtension } from './photoUploadUtils';
 
 export function useManyPhotosUpload(folderName: string,) {
   const [loading, setLoading] = useState(false);

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { ImagesType } from '../TS/interface';
+import { ImagesType, ImageType } from '../TS/interface';
 
 import { getStorage, ref, getDownloadURL, uploadBytesResumable, updateMetadata, StorageError, deleteObject, UploadTask, uploadBytes } from "firebase/storage";
-import { createMetadata, fileNameWithoutFileExtension } from '../utils';
+import { createMetadata, fileNameWithoutFileExtension } from './photoUploadUtils';
 
 export function useOnePhotoUpload(folderName: string) {
   const [loading, setLoading] = useState(false);
@@ -30,7 +30,8 @@ export function useOnePhotoUpload(folderName: string) {
       async () => {
         await getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setImages([]);
-          setImages((image) => [...image, { url: downloadURL, title: title, alt: title }]);
+          const newImage: ImageType = { url: downloadURL, title: title, alt: title, author: '' }
+          setImages((image) => [...image, newImage]);
           setLoading(false);
         });
       }
@@ -51,7 +52,8 @@ export function useOnePhotoUpload(folderName: string) {
       .then((metadata) => {
         if (metadata.customMetadata) {
           setImages([]);
-          setImages((image) => [...image, { url: url, title: inputs.title, alt: inputs.alt }]);
+          const newImage: ImageType = { url: url, title: inputs.title, alt: inputs.alt, author: '' }
+          setImages((image) => [...image, newImage]);
           setLoading(false);
         }
       }).catch((error) => {

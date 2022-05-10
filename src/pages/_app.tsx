@@ -12,6 +12,8 @@ import { ReactElement, ReactNode } from 'react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import App, { AppProps, AppContext } from 'next/app';
+// Auth
+import { useAuth } from 'src/utils/firebaseAuth/auth_listener';
 // utils
 import { getSettings } from '../utils/getSettings';
 // contexts
@@ -25,6 +27,9 @@ import ProgressBar from '../components/ProgressBar';
 import MotionLazyContainer from '../components/animate/MotionLazyContainer';
 import { AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
+import { _mockProjekts } from 'src/_mock/referenzen/referenzen';
+
+import { AuthProvider } from '../contexts/FirebaseContext';
 // ----------------------------------------------------------------------
 
 type NextPageWithLayout = NextPage & {
@@ -46,22 +51,23 @@ export default function MyApp(props: MyAppProps) {
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-
-      <CollapseDrawerProvider>
-        <SettingsProvider defaultSettings={settings}>
-          <MotionLazyContainer>
-            <ThemeProvider>
-              <ProgressBar />
-              <AnimatePresence
-                exitBeforeEnter
-              //onExitComplete={handleExitComplete}
-              >
-                <Component {...pageProps} key={router.route} />
-              </AnimatePresence>
-            </ThemeProvider>
-          </MotionLazyContainer>
-        </SettingsProvider>
-      </CollapseDrawerProvider>
+      <AuthProvider>
+        <CollapseDrawerProvider>
+          <SettingsProvider defaultSettings={settings}>
+            <MotionLazyContainer>
+              <ThemeProvider>
+                <ProgressBar />
+                <AnimatePresence
+                  exitBeforeEnter
+                //onExitComplete={handleExitComplete}
+                >
+                  <Component {...pageProps} key={router.route} />
+                </AnimatePresence>
+              </ThemeProvider>
+            </MotionLazyContainer>
+          </SettingsProvider>
+        </CollapseDrawerProvider>
+      </AuthProvider>
     </>
   );
 }
@@ -69,12 +75,11 @@ export default function MyApp(props: MyAppProps) {
 // ----------------------------------------------------------------------
 
 MyApp.getInitialProps = async (context: AppContext) => {
-  const appProps = await App.getInitialProps(context);
 
+  const appProps = await App.getInitialProps(context);
   const cookies = cookie.parse(
     context.ctx.req ? context.ctx.req.headers.cookie || '' : document.cookie
   );
-
   const settings = getSettings(cookies);
 
   return {

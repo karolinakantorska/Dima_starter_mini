@@ -4,9 +4,7 @@ import { ReactElement } from 'react';
 // layouts
 import Layout from '../layouts';
 
-Index.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>;
-};
+
 
 export default function Index() {
   /*
