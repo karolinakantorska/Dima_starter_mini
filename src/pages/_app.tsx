@@ -12,8 +12,7 @@ import { ReactElement, ReactNode } from 'react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import App, { AppProps, AppContext } from 'next/app';
-// Auth
-import { useAuth } from 'src/utils/firebaseAuth/auth_listener';
+
 // utils
 import { getSettings } from '../utils/getSettings';
 // contexts
