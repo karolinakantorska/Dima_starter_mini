@@ -62,7 +62,7 @@ export interface Props extends ReactQuillProps {
   simple?: boolean;
   helperText?: ReactNode;
   sx?: BoxProps;
-
+  onChange: any
 }
 
 export default function Editor({
@@ -95,7 +95,7 @@ export default function Editor({
       <RootStyle
         sx={{
           ...(error && {
-            border: (theme) => `solid 1px ${theme.palette.error.main}`,
+            border: (theme: any) => `solid 1px ${theme.palette.error.main}`,
           }),
           ...sx,
         }}
