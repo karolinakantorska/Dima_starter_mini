@@ -9,3 +9,10 @@ export const description = [
 
   'Orci nulla pellentesque dignissim enim sit amet venenatis. Lorem sed risus ultricies tristique nulla. Praesent tristique magna sit amet purus gravida quis blandit. Risus sed vulputate odio ut enim blandit. Porttitor massa id neque aliquam. Dolor sed viverra ipsum nunc. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Placerat in egestas erat imperdiet sed euismod. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Nunc pulvinar sapien et ligula ullamcorper. Consectetur adipiscing elit pellentesque habitant morbi. Ut morbi tincidunt augue interdum velit euismod in pellentesque massa.',
 ];
+
+export const testDescription = '<h2>Project Title</h2><p>total new Project</p><ol><li>beter</li><li>faster</li><li>stronger</li><li><br></li></ol>'
+
+
+export const testDescription2 = ' < p > mkjbj < u > gfjmj</u> <s>vbghfghjjkdggdg </s></p >'
+
+export const testDescription3 = '< p > Hallo</p><h1>How are you?</h1><p>I like you!</p><p class="ql-align-center">centered text</p><p class="ql-align-justify">Streched text</p><p>left centered text</p><p class="ql-align-justify">right centered text</p><p class="ql-align-justify"><br></p>'

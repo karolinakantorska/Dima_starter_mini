@@ -1,6 +1,7 @@
+// highlight
+import '../utils/highlight';
 // scroll bar
 import 'simplebar/src/simplebar.css';
-
 // lazy image
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
@@ -12,7 +13,11 @@ import { ReactElement, ReactNode } from 'react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import App, { AppProps, AppContext } from 'next/app';
-
+// editor
+import 'react-quill/dist/quill.snow.css';
+// @mui
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
 // utils
 import { getSettings } from '../utils/getSettings';
 // contexts
@@ -51,21 +56,24 @@ export default function MyApp(props: MyAppProps) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <AuthProvider>
-        <CollapseDrawerProvider>
-          <SettingsProvider defaultSettings={settings}>
-            <MotionLazyContainer>
-              <ThemeProvider>
-                <ProgressBar />
-                <AnimatePresence
-                  exitBeforeEnter
-                //onExitComplete={handleExitComplete}
-                >
-                  <Component {...pageProps} key={router.route} />
-                </AnimatePresence>
-              </ThemeProvider>
-            </MotionLazyContainer>
-          </SettingsProvider>
-        </CollapseDrawerProvider>
+
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <CollapseDrawerProvider>
+            <SettingsProvider defaultSettings={settings}>
+              <MotionLazyContainer>
+                <ThemeProvider>
+                  <ProgressBar />
+                  <AnimatePresence
+                    exitBeforeEnter
+                  //onExitComplete={handleExitComplete}
+                  >
+                    <Component {...pageProps} key={router.route} />
+                  </AnimatePresence>
+                </ThemeProvider>
+              </MotionLazyContainer>
+            </SettingsProvider>
+          </CollapseDrawerProvider>
+        </LocalizationProvider>
       </AuthProvider>
     </>
   );

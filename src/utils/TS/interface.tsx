@@ -17,7 +17,7 @@ export interface ProjectType {
   client: string;
   size: number;
   architect: Company;
-  cooperation?: {
+  cooperation: {
     service: Services | string;
     company: Company;
   };
@@ -45,14 +45,13 @@ export const regionenArray = [
   'Zürich',
   'Arosa',
   'Andere Regionen',
-  'Alle',
 ] as const;
 export type Regionen = typeof regionenArray[number];
 
-export const objektAlterArray = ['Newbau', 'Sanierung', 'Alle'] as const;
+export const objektAlterArray = ['Newbau', 'Sanierung'] as const;
 export type ObjektAlter = typeof objektAlterArray[number];
 
-export const phaseArray = ['Entwicklung', 'Plannung', 'Realisierung', 'Alle'] as const;
+export const phaseArray = ['Entwicklung', 'Plannung', 'Realisierung',] as const;
 export type Phase = typeof phaseArray[number];
 export type ArrayOfPhases = Phase[];
 
@@ -64,7 +63,6 @@ export const objektTypeArray = [
   'Gesundheits',
   'Sport',
   'Multifunktional',
-  'Alle',
 ] as const;
 
 export type ObjektType = typeof objektTypeArray[number];
@@ -81,7 +79,6 @@ export const ServicesArray = [
   'Mangelmenagement',
   'Kostenmenagement',
   'Submision',
-  'Alle',
 ] as const;
 export type Services = typeof ServicesArray[number];
 export type ArrayOfServicesType = Services[];
