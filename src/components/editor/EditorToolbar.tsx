@@ -85,10 +85,10 @@ export default function EditorToolbar({ id, isSimple, ...other }: EditorToolbarP
           </div>
         )}
 
-        <div className="ql-formats">
+        {!isSimple && <div className="ql-formats">
           {false && <button type="button" className="ql-direction" value="rtl" />}
           <select className="ql-align" />
-        </div>
+        </div>}
 
         {false && <div className="ql-formats">
           <button type="button" className="ql-link" />

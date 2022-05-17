@@ -35,6 +35,10 @@ export const _mockProjekts: ProjectsListType = [
     client: Kgp_Immobilien,
     size: 9999,
     architect: `ZFP Architektur AG, Bülach`,
+    cooperation: {
+      service: '',
+      company: '',
+    },
     location: 'Bülach',
   },
   //
@@ -61,7 +65,10 @@ export const _mockProjekts: ProjectsListType = [
     client: 'Mettelacher Immobilien AG, Wollerau',
     size: 9999,
     architect: 'Hamburger du Pfammatter Ferrandiz AG Architekten ETH SIA, Zürich',
-    location: 'Zumikon',
+    cooperation: {
+      service: '',
+      company: '',
+    }, location: 'Zumikon',
   },
   //
   // neubau 2 einfamilienhäuser
@@ -87,7 +94,10 @@ export const _mockProjekts: ProjectsListType = [
     client: privat,
     size: 9999,
     architect: dima,
-    location: 'Bachenbülach',
+    cooperation: {
+      service: '',
+      company: '',
+    }, location: 'Bachenbülach',
   },
   //
   // wohnüberbauung oberer gubel
@@ -113,7 +123,10 @@ export const _mockProjekts: ProjectsListType = [
     client: Kgp_Immobilien,
     size: 9999,
     architect: Cadosch,
-    location: 'Jona',
+    cooperation: {
+      service: '',
+      company: '',
+    }, location: 'Jona',
   },
   //
   // wohnüberbauung schachenmatt 2
@@ -139,7 +152,10 @@ export const _mockProjekts: ProjectsListType = [
     client: 'Siedlungsgenossenschaft Eigengrund, Zürich',
     size: 9999,
     architect: 'Egli Rohr Partner AG, Baden',
-    location: 'Dietikon',
+    cooperation: {
+      service: '',
+      company: '',
+    }, location: 'Dietikon',
   },
   //
   // neubau 4 mfh leisibüelpark
@@ -192,7 +208,10 @@ export const _mockProjekts: ProjectsListType = [
     client: privat,
     size: 9999,
     architect: dima,
-    location: 'Opfikon',
+    cooperation: {
+      service: '',
+      company: '',
+    }, location: 'Opfikon',
   },
   //
   // sanierung schwimmbad gründli
@@ -218,7 +237,10 @@ export const _mockProjekts: ProjectsListType = [
     client: 'Gemeinde Glarus',
     size: 9999,
     architect: '',
-    location: 'Glarus',
+    cooperation: {
+      service: '',
+      company: '',
+    }, location: 'Glarus',
   },
   //
   // neubau Kongress- & Kulturzentrum  samsung hall
@@ -244,7 +266,10 @@ export const _mockProjekts: ProjectsListType = [
     client: '',
     size: 9999,
     architect: '',
-    location: 'Dübendorf',
+    cooperation: {
+      service: '',
+      company: '',
+    }, location: 'Dübendorf',
   },
   //
   // neubau hauptsitz namics ag
@@ -270,7 +295,10 @@ export const _mockProjekts: ProjectsListType = [
     client: 'Asga Pensionskasse St. Gallen',
     size: 9999,
     architect: 'Arge Menn / Ammann',
-    location: 'St, Gallen',
+    cooperation: {
+      service: '',
+      company: '',
+    }, location: 'St, Gallen',
   },
   //
   // überbauung feldbreite
@@ -411,7 +439,10 @@ export const _mockProjekts: ProjectsListType = [
     client: 'Credit Suisse AG, Zürich',
     size: 9999,
     architect: dima,
-    location: 'Glarus',
+    cooperation: {
+      service: '',
+      company: '',
+    }, location: 'Glarus',
   },
 ];
 
