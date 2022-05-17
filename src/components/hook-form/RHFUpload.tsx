@@ -11,7 +11,9 @@ import {
 } from '../upload';
 
 // ----------------------------------------------------------------------
-
+interface Props extends Omit<UploadProps, 'file'> {
+  name: string;
+}
 
 export function RHFUploadSingleFile({ name, ...other }: Props) {
   const { control } = useFormContext();
