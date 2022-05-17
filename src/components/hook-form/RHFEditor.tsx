@@ -11,7 +11,7 @@ interface Props extends EditorProps {
   name: string;
 }
 
-export default function RHFEditor({ name, ...other }: Props) {
+export default function RHFEditor({ name, ...other }: any) {
   const { control } = useFormContext();
 
   return (
