@@ -6,11 +6,13 @@ import { Container, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import { ProjectType } from '../../utils/TS/interface';
 import { firstLettersBig, writeObiektTypeInGerman, writeServiceInGerman } from '../../utils/Text/textUtils';
+import { testDescription } from 'src/_mock/text';
 
 export function OneProjectCom({ project }: { project: ProjectType }) {
   /*
     const { photo, photos, id, title, description, year, objektAlter, objektType, services, region, phase, client, architect, cooperation, location } = project;
     */
+
   return (
     <Container disableGutters={true}>
       {project &&
@@ -76,6 +78,9 @@ export function OneProjectCom({ project }: { project: ProjectType }) {
           <Grid item>
             <Typography variant="body1" component="p" paragraph color="text.secondary">
               {project.description}
+            </Typography>
+            <Typography color="text.secondary">
+              {testDescription}
             </Typography>
           </Grid>
         </Grid>}

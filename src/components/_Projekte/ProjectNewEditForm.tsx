@@ -252,14 +252,12 @@ export default function ProjectNewEditForm({ isEdit, currentProject }: Props) {
 
               <Card sx={{ p: 3 }}>
                 <div>
-                  {/*TODO not to give so many possibilities */}
                   <LabelStyle>Bezeichnung</LabelStyle>
                   <RHFEditor simple name="description" />
                 </div>
               </Card>
             </Stack>
           </Grid>
-
           <Grid item xs={12} md={4}>
             <Stack spacing={3}>
               <Card sx={{ p: 3 }}>

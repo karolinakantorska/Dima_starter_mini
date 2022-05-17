@@ -2,6 +2,9 @@
 import '../utils/highlight';
 // scroll bar
 import 'simplebar/src/simplebar.css';
+
+// editor
+import 'react-quill/dist/quill.snow.css';
 // lazy image
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
@@ -13,8 +16,7 @@ import { ReactElement, ReactNode } from 'react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import App, { AppProps, AppContext } from 'next/app';
-// editor
-import 'react-quill/dist/quill.snow.css';
+
 // @mui
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';

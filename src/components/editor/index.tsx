@@ -61,7 +61,7 @@ export interface Props extends ReactQuillProps {
   simple?: boolean;
   helperText?: ReactNode;
   sx?: BoxProps;
-  value?: any;
+
 }
 
 export default function Editor({
