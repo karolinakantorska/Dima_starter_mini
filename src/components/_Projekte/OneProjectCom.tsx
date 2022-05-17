@@ -6,7 +6,7 @@ import { Container, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import { ProjectType } from '../../utils/TS/interface';
 import { firstLettersBig, writeObiektTypeInGerman, writeServiceInGerman } from '../../utils/Text/textUtils';
-import { testDescription } from 'src/_mock/text';
+import { testDescription } from 'src/_mock/referenzen/description';
 
 export function OneProjectCom({ project }: { project: ProjectType }) {
   /*
